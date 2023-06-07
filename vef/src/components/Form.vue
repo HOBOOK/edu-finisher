@@ -41,7 +41,8 @@
         let data = {
             'pId': this.pId,
             'sId': this.sId,
-            'id': this.id
+            'id': this.id,
+            'order': 22
         }
 
         this.$axios.post('http://localhost:5000/test',data)
