@@ -22,8 +22,10 @@ public class RequestController {
     public void ok() {
         log.info(Timestamp.valueOf(LocalDateTime.now()).getTime());
     }
-    @PostMapping("/test")
-    public ResponseEntity<?> test(@RequestBody FormData formData) {
+
+
+    @PostMapping("/complete/{id}")
+    public ResponseEntity<?> test(@PathVariable String id) {
 //        System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
         String requestUrl = "http://vazil.campusline.kr/lms/plugin/player/ecom_player_update.php";
 
@@ -39,9 +41,9 @@ public class RequestController {
             MultiValueMap<String, Object> form = new LinkedMultiValueMap<>();
             form.add("p_id", "c67ec40e5a4442686367a39e92f3e791");
             form.add("s_id", "ujeb");
-            form.add("wr_order", formData.getOrder());
+            form.add("wr_order", 22);
             form.add("wr_page", (i+1));
-            form.add("wr_id", formData.getId());
+            form.add("wr_id", id);
 
             String timestamp = "1675812390";
 
